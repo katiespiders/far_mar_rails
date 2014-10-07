@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :markets
+
   get "/vendor", to: "vendor#index"
   get "/product", to: "product#index"
 
