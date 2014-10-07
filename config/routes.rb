@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get "/", to: "home#index"
 
   get "/vendor", to: "vendor#index"
   get "/product", to: "product#index"
