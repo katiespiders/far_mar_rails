@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "/products", to: "products#index"
 
+  resources :markets
+
   get "/markets", to: "markets#index"
 
   get "/markets/new", to: "markets#new"
