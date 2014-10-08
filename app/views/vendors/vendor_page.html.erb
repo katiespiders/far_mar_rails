@@ -5,7 +5,7 @@
 
 <body>
   <h2><%= Vendor.find(params[:id]).name %>'s Products</h2>
-  <ul><% Product.where(vendor_id: 1).each do |product| %>
+  <ul><% Product.where(vendor_id: params[:id]).each do |product| %>
     <li><%= product.name %></li>
     <% end %>
   </ul>
