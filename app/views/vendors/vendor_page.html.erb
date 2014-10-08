@@ -9,5 +9,9 @@
     <li><%= product.name %></li>
     <% end %>
   </ul>
+
+  <!-- This should appear only if user is logged in as this vendor -->
+  <a href="/vendors/<%=params[:id]%>/add_product">Add a product</a>
+
 </body>
 </html>

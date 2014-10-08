@@ -5,4 +5,8 @@ class Vendor < ActiveRecord::Base
   def path
     "/vendors/#{self.id}"
   end
+
+  def add_product_path
+    "/vendors/#{self.id}/add_product"
+  end
 end
