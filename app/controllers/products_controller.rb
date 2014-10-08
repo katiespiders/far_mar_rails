@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to "/vendors/#{@product.vendor_id}"
     else
-      # I want to render vendors/add_product because that's where the form is, how do I get to it?
+      # I want to render vendors/add_product because that's where the form is, how do I get to it from products controller?
     end
   end
 end

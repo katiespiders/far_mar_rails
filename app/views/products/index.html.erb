@@ -9,7 +9,7 @@
   <ul>
     <% Product.all.each do |product| %>
       <li>
-        <%= product.name %>
+        <a href= <%= product.path %> ><%= product.name %> </a>
       </li>
     <% end %>
   </ul>
