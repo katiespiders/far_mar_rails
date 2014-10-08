@@ -5,7 +5,7 @@
 
 <body>
   <%= params.inspect %>
-  <%= form_for :product, url: products_path do |f| %> <!--WHAT SORCERY IS THIS-->
+  <!-- <%= form_for :product, url: products_path do |f| %> <!- -WHAT SORCERY IS THIS- -><!- - I don't know, so I'm going to write this in raw HTML so I get it. - ->
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
@@ -23,8 +23,21 @@
     <p>
 
       <%= f.hidden_field :vendor_id, value: params[:id].to_i %>
+      <!- - http://stackoverflow.com/questions/16280341/hidden-field-in-rails-form - ->
 
       <%= f.submit %>
     </p>
-  <% end %>
+  <% end %> -->
+  <form method="POST" action="/products#create">
+    Product name <input name="name"/>
+    Description <input name="description"/>
+    Price <input name="price"/>
+    <% debug = "*" * 80 %>
+    <% puts debug, params.permit(:id)["id"], debug %>
+    <% v_id = params.permit(:id)["id"].to_i %>
+    <input type="hidden" name="vendor_id" value= <%= v_id %> />
+
+    <input type="submit"/>
+
+  </form>
 </body>

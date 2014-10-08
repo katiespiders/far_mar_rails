@@ -4,13 +4,12 @@ Rails.application.routes.draw do
 
   get "/vendors", to: "vendors#index"
   get "/vendors/:id", to: "vendors#vendor_page"
-
   get "/vendors/:id/add_product", to: "vendors#add_product"
 
   get "/products", to: "products#index"
   post "/products", to: "products#create"
 
-  resources :markets
+  resources :markets # what's this line do?
 
   get "/markets", to: "markets#index"
 

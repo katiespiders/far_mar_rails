@@ -5,9 +5,9 @@
 </head>
 
 <body>
-  <h1>List of products</h1>
+  <h1>List of all products</h1>
   <ul>
-    <% @products.each do |product| %>
+    <% Product.all.each do |product| %>
       <li>
         <%= product.name %>
       </li>

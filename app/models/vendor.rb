@@ -1,6 +1,6 @@
 class Vendor < ActiveRecord::Base
   belongs_to :market
-  has_many :product
+  has_many :products
 
   def path
     "/vendors/#{self.id}"
