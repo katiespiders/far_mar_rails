@@ -6,10 +6,7 @@
 <body>
   <h2><%= Vendor.find(params[:id]).name %>'s Products</h2>
   <ul><% Product.where(vendor_id: params[:id]).each do |product| %>
-    <li><strong><%= product.name %></strong> &mdash; <%= number_to_currency(product.price.to_f/100) %>
-    <p>
-      <%= product.description %>
-    </p></li>
+    <li><strong><%= product.name %></strong> &mdash; <%= number_to_currency(product.price) %></li>
     <% end %>
   </ul>
 

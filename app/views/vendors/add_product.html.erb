@@ -31,7 +31,7 @@
   <form method="POST" action="/products#create">
     Product name <input name="name"/>
     Description <input name="description"/>
-    Price <input name="price"/>
+    Price <input name="price" type="number" step="0.01"/>
     <input type="hidden" name="vendor_id" value= <%= params.permit(:id)["id"].to_i %> />
 
     <input type="submit"/>
