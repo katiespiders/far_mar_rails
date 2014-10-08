@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get "/vendors/:id", to: "vendors#vendor_page"
 
   get "/vendors/:id/add_product", to: "vendors#add_product"
-  post "/vendors/:id/add_product", to: "products#create"
 
   get "/products", to: "products#index"
+  post "/products", to: "products#create"
 
   resources :markets
 
