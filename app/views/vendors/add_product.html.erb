@@ -32,10 +32,7 @@
     Product name <input name="name"/>
     Description <input name="description"/>
     Price <input name="price"/>
-    <% debug = "*" * 80 %>
-    <% puts debug, params.permit(:id)["id"], debug %>
-    <% v_id = params.permit(:id)["id"].to_i %>
-    <input type="hidden" name="vendor_id" value= <%= v_id %> />
+    <input type="hidden" name="vendor_id" value= <%= params.permit(:id)["id"].to_i %> />
 
     <input type="submit"/>
 
