@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vendor List</title>
+</head>
+
+<body>
+  <!-- <a href="/show-products">Show products for Schrute Farms</a>
+  <h1> Schrute Farms products: </h1>
+  <ul> <% Product.where(vendor_id: 1).each do |product| %>
+    <li>
+      <%= product.name %>
+    </li>
+    <% end %>
+  </ul> -->
+
+
+  <ul>
+    <% Vendor.all.each do |vendor| %>
+      <li>
+        <a href="<%= vendor.path %>" > <%= vendor.name %> </a>
+      </li>
+    <% end %>
+  </ul>
+
+</body>
+
+</html>

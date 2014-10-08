@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index"
 
-  get "/vendor", to: "vendor#index"
-  get "/product", to: "product#index"
+  get "/vendors", to: "vendors#index"
+  get "/vendors/:id", to: "vendors#vendor_page"
+
+  get "/products", to: "products#index"
 
   get "/markets", to: "markets#index"
 
