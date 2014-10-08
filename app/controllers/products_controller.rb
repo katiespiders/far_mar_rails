@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def create
+    puts product_params
     @product = Product.new(product_params)
     @product.save
     # redirect_to @product

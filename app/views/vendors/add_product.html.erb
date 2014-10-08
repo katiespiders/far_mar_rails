@@ -4,6 +4,7 @@
 </head>
 
 <body>
+  <%= params.inspect %>
   <%= form_for :product, url: products_path do |f| %> <!--WHAT SORCERY IS THIS-->
     <p>
       <%= f.label :name %><br>
@@ -16,6 +17,13 @@
     </p>
 
     <p>
+      <%= f.label :price %><br>
+      <%= f.text_field :price %>
+
+    <p>
+
+      <%= f.hidden_field :vendor_id, value: params[:id].to_i %>
+
       <%= f.submit %>
     </p>
   <% end %>
