@@ -1,0 +1,10 @@
+<h2><%=@market.name%></h2>
+
+Location:<br>
+<%= @market.street_address %><br>
+<%= @market.city %><br>
+<%= @market.state %><br>
+<%= @market.zipcode %><br>
+
+<br>
+<a href="/markets/edit/<%=@market.id%>">Edit</a> <br>

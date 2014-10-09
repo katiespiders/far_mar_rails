@@ -2,16 +2,20 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index"
 
-  resources :markets
-
   get "/vendor", to: "vendor#index"
   get "/product", to: "product#index"
 
-  get "/markets", to: "markets#index"
+  get "/markets", to: "market#index"
 
-  get "/markets/new", to: "markets#new"
+  get "/markets/new", to: "market#new"
 
-  post "/markets/new", to: "markets#create"
+  post "/markets/create", to: "market#create"
+
+  get "/markets/edit/:id", to: "market#edit"
+
+  get "/markets/show/:id", to: "market#show"
+
+  post "/markets/show/:id", to: "market#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
