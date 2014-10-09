@@ -1,7 +1,7 @@
 <h2>Market Mainpage</h2>
 
 <% @markets.each do |market| %>
-  <a href="/markets/show/<%=market.id%>"><%= market.name%></a> <br>
+  <a href="/markets/<%=market.id%>"><%= market.name%></a> <br>
 <% end %>
 
 <br>

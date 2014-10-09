@@ -7,4 +7,7 @@ Location:<br>
 <%= @market.zipcode %><br>
 
 <br>
-<a href="/markets/edit/<%=@market.id%>">Edit</a> <br>
+<a href="/markets/<%=@market.id%>/edit">Edit</a>
+<a href="/markets/<%=@market.id%>/destroy">Delete</a>
+<br>
+<a href="/markets">Market List</a>
