@@ -2,10 +2,14 @@
 
 <html>
 <head>
-  <title><%= vendor.name %>'s Products</title>
+  <title><%= vendor.name %></title>
 </head>
 
 <body>
+  <h1><%= vendor.name %></h1>
+  <p><%= vendor.description %></p>
+  <p>Find <a href="<%= vendor.website %>"><%= vendor.name %></a> at <%= Market.find(vendor.market_id).name %>.</p>
+  <p>Email <a href="mailto:<%= vendor.email %>"><%= vendor.name %></a> or call <%= vendor.phone %></p>
   <h2><%= vendor.name %>'s Products</h2>
   <ul><% Product.where(vendor_id: vendor.id).each do |product| %>
     <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %></li>
@@ -14,6 +18,7 @@
 
   <!-- This should appear only if user is logged in as this vendor -->
   <a href="/vendors/<%=vendor.id%>/add_product">Add a product</a>
+  <a href="/vendors/<%=vendor.id%>/edit">Edit</a>
 
 </body>
 </html>
