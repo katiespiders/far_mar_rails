@@ -13,6 +13,10 @@ class VendorsController < ApplicationController
     end
   end
 
+  def show
+    @vendor = Vendor.find(params[:id])
+  end    
+
   def edit
     @vendor = Vendor.find(params[:id])
   end
@@ -26,4 +30,10 @@ class VendorsController < ApplicationController
       render :edit
     end
   end
+
+  # this is what rails magic does
+  def login
+    render :login
+  end
+
 end
