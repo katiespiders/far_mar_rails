@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vendor List</title>
+</head>
+
+<body>
+
+  <ul>
+    <% Vendor.all.each do |vendor| %>
+      <li>
+        <a href="<%= vendor.path %>" > <%= vendor.name %> </a>
+      </li>
+    <% end %>
+  </ul>
+
+</body>
+
+</html>

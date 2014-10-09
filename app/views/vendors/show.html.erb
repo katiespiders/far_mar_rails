@@ -1,0 +1,19 @@
+<% vendor = Vendor.find(params[:id]) %>
+
+<html>
+<head>
+  <title><%= vendor.name %>'s Products</title>
+</head>
+
+<body>
+  <h2><%= vendor.name %>'s Products</h2>
+  <ul><% Product.where(vendor_id: vendor.id).each do |product| %>
+    <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %></li>
+    <% end %>
+  </ul>
+
+  <!-- This should appear only if user is logged in as this vendor -->
+  <a href="/vendors/<%=vendor.id%>/add_product">Add a product</a>
+
+</body>
+</html>

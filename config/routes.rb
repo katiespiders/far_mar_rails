@@ -2,8 +2,19 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index"
 
-  get "/vendor", to: "vendor#index"
-  get "/product", to: "product#index"
+  get "/vendors", to: "vendors#index"
+  get "/vendors/:id", to: "vendors#show"
+  get "/vendors/:id/add_product", to: "vendors#add_product"
+  #
+  # get  "/posts/:id/edit", to: "posts#edit", as: :edit_post
+  # put "/posts/:id/", to: "posts#update"
+
+  get "/products", to: "products#index"
+  get "/products/:id", to: "products#show"
+  post "/products", to: "products#create"
+  get "/products/:id/edit", to: "products#edit"
+  put "/products/:id/", to: "products#update"
+  delete "/products/:id/", to: "products#destroy"
 
   get "/markets", to: "market#index"
   get "/markets/new", to: "market#new"

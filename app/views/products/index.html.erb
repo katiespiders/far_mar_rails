@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+</head>
+
+<body>
+  <h1>List of all products</h1>
+  <ul>
+    <% Product.all.each do |product| %>
+      <li>
+        <a href= <%= product.path %> ><%= product.name %> </a>
+      </li>
+    <% end %>
+  </ul>
+</body>
+
+</html>
