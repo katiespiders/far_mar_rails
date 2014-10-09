@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get "/products", to: "products#index"
   post "/products", to: "products#create"
   get "/products/:id", to: "products#product_page"
+  get "/products/:id/edit", to: "products#edit"
+  put "/products/:id/", to: "products#update"
+  delete "/products/:id/", to: "products#delete"
 
   resources :markets # what's this line do?
 

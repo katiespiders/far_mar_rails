@@ -1,4 +1,18 @@
+<% product = Product.find(params[:id]) %>
+<!-- <%= puts "*" * 80, product.vendor_id, "*" * 80 %> -->
+<% vendor = Vendor.find(product.vendor_id) %>
+
 <html>
 <head>
-  <title>All About <%= Product.find(params[:id]).name %></title>
+  <title>All About <%= product.name %></title>
 </head>
+
+<body>
+  <h1> <%= vendor.name %>'s <%= product.name %> </h1>
+  <p> <%= product.description %> &mdash; $<%= product.price %></p>
+  <a href = <%= product.edit_path %> >Edit</a>
+  <!-- <a href = <%= product.delete_path %> >Delete</a> -->
+  <form method="POST">
+    <input type="submit"/>
+  </form>
+</body>

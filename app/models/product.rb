@@ -4,4 +4,12 @@ class Product < ActiveRecord::Base
   def path
     "/products/#{self.id}"
   end
+
+  def edit_path
+    "/products/#{self.id}/edit"
+  end
+
+  def delete_path
+    "/products/#{self.id}/delete"
+  end
 end
