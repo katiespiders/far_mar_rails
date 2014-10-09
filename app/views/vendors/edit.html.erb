@@ -9,12 +9,12 @@
 <form action= "/vendors/<%= @vendor.id %>" method="POST">
 
   <input type="hidden" name="_method" value="PUT" />
-  Name <input name="name" value= <%= @vendor.name %> /> <!--why is this truncated? -->
-  Market <input name="market_id" value= <%= @vendor.market_id %> />
-  Description <input name="description" value= <%= @vendor.description %> />
-  Website <input name="website" value= <%= @vendor.website %> />
-  Email <input name="email" value= <%= @vendor.email %> />
-  Phone <input name="phone" value= <%= @vendor.phone %> />
+  Name <input name="name" value= "<%= @vendor.name %>" />
+  Market <input name="market_id" value= "<%= @vendor.market_id %>" />
+  Description <input name="description" value= "<%= @vendor.description %>" />
+  Website <input name="website" value= "<%= @vendor.website %>" />
+  Email <input name="email" value= "<%= @vendor.email %>" />
+  Phone <input name="phone" value= "<%= @vendor.phone %>" />
   <input type="submit"/>
 
 </form>

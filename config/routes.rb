@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index"
 
-  resources :vendors
   get "/vendors", to: "vendors#index"
   get "/vendors/:id", to: "vendors#show"
   get "/vendors/:id/add_product", to: "vendors#add_product"
@@ -10,9 +9,6 @@ Rails.application.routes.draw do
   get "/vendors/:id/edit", to: "vendors#edit"
   put "/vendors/:id", to: "vendors#update"
   delete "/vendors/:id", to: "vendors#destroy"
-  #
-  # get  "/posts/:id/edit", to: "posts#edit", as: :edit_post
-  # put "/posts/:id/", to: "posts#update"
 
   get "/products", to: "products#index"
   get "/products/:id", to: "products#show"
@@ -20,8 +16,6 @@ Rails.application.routes.draw do
   get "/products/:id/edit", to: "products#edit"
   put "/products/:id/", to: "products#update"
   delete "/products/:id/", to: "products#destroy"
-
-  resources :markets # what's this line do?
 
   get "/markets", to: "markets#index"
 
