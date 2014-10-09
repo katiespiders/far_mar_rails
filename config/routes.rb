@@ -2,16 +2,20 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index"
 
+  resources :vendors
   get "/vendors", to: "vendors#index"
-  get "/vendors/:id", to: "vendors#vendor_page"
+  get "/vendors/:id", to: "vendors#show"
   get "/vendors/:id/add_product", to: "vendors#add_product"
+  #
+  # get  "/posts/:id/edit", to: "posts#edit", as: :edit_post
+  # put "/posts/:id/", to: "posts#update"
 
   get "/products", to: "products#index"
+  get "/products/:id", to: "products#show"
   post "/products", to: "products#create"
-  get "/products/:id", to: "products#product_page"
   get "/products/:id/edit", to: "products#edit"
   put "/products/:id/", to: "products#update"
-  delete "/products/:id/", to: "products#delete"
+  delete "/products/:id/", to: "products#destroy"
 
   resources :markets # what's this line do?
 

@@ -23,18 +23,16 @@ class ProductsController < ApplicationController
   end
 
   def update
-    puts params[:id]
     @product = Product.find(params.permit(:id)["id"])
     @product.update(params.permit(:name, :description, :price))
     if @product.save
-      puts @product.inspect
       redirect_to "/products/#{@product.id}"
     else
       render :edit
     end
   end
 
-  def delete
+  def destroy
     Product.destroy(params.permit(:id)["id"])
     redirect_to "/products"
   end
