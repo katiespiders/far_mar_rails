@@ -17,11 +17,17 @@ Rails.application.routes.draw do
   put "/products/:id/", to: "products#update"
   delete "/products/:id/", to: "products#destroy"
 
-  get "/markets", to: "markets#index"
+  get "/markets", to: "market#index"
+  get "/markets/new", to: "market#new"
+  post "/markets/create", to: "market#create"
 
-  get "/markets/new", to: "markets#new"
+  get "/markets/:id", to: "market#show"
+  put "/markets/:id", to: "market#update"
+  post "/markets/:id", to: "market#create"
+  get "/markets/:id/destroy", to: "market#delete"
 
-  post "/markets/new", to: "markets#create"
+  get "/markets/:id/edit", to: "market#edit"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

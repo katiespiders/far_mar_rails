@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 20141009205732) do
   enable_extension "plpgsql"
 
   create_table "markets", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "name"
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
-    t.integer  "zipcde"
+    t.integer  "zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|

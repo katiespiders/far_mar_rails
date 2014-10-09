@@ -1,0 +1,13 @@
+<h2><%=@market.name%></h2>
+
+Location:<br>
+<%= @market.street_address %><br>
+<%= @market.city %><br>
+<%= @market.state %><br>
+<%= @market.zipcode %><br>
+
+<br>
+<a href="/markets/<%=@market.id%>/edit">Edit</a>
+<a href="/markets/<%=@market.id%>/destroy">Delete</a>
+<br>
+<a href="/markets">Market List</a>

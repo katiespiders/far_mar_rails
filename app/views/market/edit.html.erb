@@ -1,0 +1,14 @@
+<h2>Edit <%=@market.name%></h2>
+<form method="POST" action="/markets/<%= @market.id %>">
+  <input type="hidden" name="_method" value="PUT"/>
+  <table>
+    <tr><td>Name:</td><td> <input type="text" name="market[name]" value="<%= @market.name %>"/></td> </tr>
+    <tr><td>Street Address:</td><td><input type="text" name="market[street_address]" value="<%= @market.street_address %>"</td></tr>
+    <tr><td>City:</td><td><input type="text" name="market[city]" value="<%= @market.city %>"/></td></tr>
+    <tr><td>State:</td><td><input type="text" name="market[state]" value="<%= @market.state %>"</td></tr>
+    <tr><td>Zip code:</td><td><input type="text" name="market[zipcode]" value="<%= @market.zipcode %>"/></td></tr>
+  </table>
+  <input type="submit" value="Make Changes"/>
+</form>
+
+<a href="/markets/<%= @market.id %>">Cancel</a>
