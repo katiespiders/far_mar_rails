@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/", to: "home#index"
 
   get "/vendors", to: "vendors#index"
+  post "/vendors/signin", to: "session#create"
   get "/vendors/:id", to: "vendors#show"
   get "/vendors/:id/add_product", to: "vendors#add_product"
   post "/vendors", to: "vendors#create"
