@@ -1,4 +1,5 @@
 <% vendor = Vendor.find(params[:id]) %>
+<% market = Market.find(vendor.market_id) %>
 
 <html>
 <head>
@@ -8,7 +9,7 @@
 <body>
   <h1><%= vendor.name %></h1>
   <p><%= vendor.description %></p>
-  <p>Find <a href="<%= vendor.website %>"><%= vendor.name %></a> at <%= Market.find(vendor.market_id).name %>.</p>
+  <p>Find <a href="<%= vendor.website %>"><%= vendor.name %></a> at <a href="/markets/<%= market.id %>"><%= market.name %></a>.</p>
   <p>Email <a href="mailto:<%= vendor.email %>"><%= vendor.name %></a> or call <%= vendor.phone %></p>
   <h2><%= vendor.name %>'s Products</h2>
   <ul><% Product.where(vendor_id: vendor.id).each do |product| %>
