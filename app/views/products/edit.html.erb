@@ -1,4 +1,3 @@
-<!-- <% product = Product.find(params[:id]) %> -->
 
 <html>
 <head>
@@ -9,9 +8,9 @@
 <form action= "/products/<%= @product.id %>" method="POST">
 
   <input type="hidden" name="_method" value="PUT" />
-  Name <input name="name" value= "<%= @product.name %>" /> <!--why is this truncated? -->
-  Description <input name="description" value= "<%= @product.description %>" />
-  Price <input name="price" value= "<%= @product.price %>" />
+  Name <input name="vendor[name]" value= "<%= @product.name %>" /> <!--why is this truncated? -->
+  Description <input name="vendor[description]" value= "<%= @product.description %>" />
+  Price <input name="vendor[price]" value= "<%= @product.price %>" />
 
   <input type="submit"/>
 
