@@ -2,36 +2,37 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index"
 
-  get "/vendors", to: "vendors#index"
+  get   "/vendors",                 to: "vendors#index"
+  get   "/vendors/new",             to: "vendors#new"
+  post  "/vendors",                 to: "vendors#create"
+  get   "/vendors/login",           to: "vendors#login"
+  post  "/vendors/login",           to: "vendors#show"
 
-  get "/vendors/new", to: "vendors#new"
-  post "/vendors", to: "vendors#create"
-  get "/vendors/login", to: "vendors#login"
-  post "/vendors/login", to: "vendors#show"
+  get   "/vendors/:id",             to: "vendors#show"
+  get   "/vendors/:id/add_product", to: "products#new"
+  get   "/vendors/:id/add_market",  to: "markets#new"
+  get   "/vendors/:id/edit",        to: "vendors#edit"
+  put   "/vendors/:id",             to: "vendors#update"
+  get   "/vendors/:id/destroy",     to: "vendors#delete"
 
-  get "/vendors/:id", to: "vendors#show"
-  get "/vendors/:id/add_product", to: "vendors#add_product"
-  get "/vendors/:id/edit", to: "vendors#edit"
-  put "/vendors/:id", to: "vendors#update"
-  delete "/vendors/:id", to: "vendors#destroy"
+  get   "/products",                to: "products#index"
+  get   "/products/new",            to: "products#new"
+  post  "/products",                to: "products#create"
+  get   "/products/:id",            to: "products#show"
+  get   "/products/:id/edit",       to: "products#edit"
+  put   "/products/:id/",           to: "products#update"
+  get   "/products/:id/destroy",    to: "products#delete"
 
-  get "/products", to: "products#index"
-  get "/products/:id", to: "products#show"
-  post "/products", to: "products#create"
-  get "/products/:id/edit", to: "products#edit"
-  put "/products/:id/", to: "products#update"
-  delete "/products/:id/", to: "products#destroy"
+  get   "/markets",                 to: "market#index"
+  get   "/markets/new",             to: "market#new"
+  post  "/markets/create",          to: "market#create"
 
-  get "/markets", to: "market#index"
-  get "/markets/new", to: "market#new"
-  post "/markets/create", to: "market#create"
+  get   "/markets/:id",             to: "market#show"
+  put   "/markets/:id",             to: "market#update"
+  post  "/markets/:id",             to: "market#create"
+  get   "/markets/:id/destroy",     to: "market#delete"
 
-  get "/markets/:id", to: "market#show"
-  put "/markets/:id", to: "market#update"
-  post "/markets/:id", to: "market#create"
-  get "/markets/:id/destroy", to: "market#delete"
-
-  get "/markets/:id/edit", to: "market#edit"
+  get   "/markets/:id/edit",        to: "market#edit"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

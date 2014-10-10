@@ -10,6 +10,6 @@ class Product < ActiveRecord::Base
   end
 
   def delete_path
-    "/products/#{self.id}/delete"
+    "/products/#{self.id}/destroy"
   end
 end
