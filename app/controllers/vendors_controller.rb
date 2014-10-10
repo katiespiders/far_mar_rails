@@ -7,6 +7,7 @@ class VendorsController < ApplicationController
   def create
     @vendor = Vendor.new(vendor_params)
     if @vendor.save
+      session[:vendor_id] ||= @vendor.id
       redirect_to "/vendors/#{@vendor.id}"
     else
       render :new
@@ -41,6 +42,7 @@ class VendorsController < ApplicationController
     find_vendor
     products = Product.where(vendor_id: @vendor.id)
     products.each { |product| product.destroy }
+    session[:vendor_id] = nil
     @vendor.destroy
     redirect_to "/vendors"
   end
