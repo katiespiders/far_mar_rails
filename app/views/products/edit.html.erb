@@ -8,7 +8,7 @@
 <form action= "/products/<%= @product.id %>" method="POST">
 
   <input type="hidden" name="_method" value="PUT" />
-  Name <input name="vendor[name]" value= "<%= @product.name %>" /> <!--why is this truncated? -->
+  Name <input name="vendor[name]" value= "<%= @product.name %>" />
   Description <input name="vendor[description]" value= "<%= @product.description %>" />
   Price <input name="vendor[price]" value= "<%= @product.price %>" />
 

@@ -7,6 +7,7 @@ class VendorsController < ApplicationController
   def create
     @vendor = Vendor.new(vendor_params)
     if @vendor.save
+      session[:vendor_id] ||= @vendor.id
       redirect_to "/vendors/#{@vendor.id}"
     else
       render :new
@@ -18,7 +19,6 @@ class VendorsController < ApplicationController
       puts "session:", session
       @loggedin = true
     end
-    puts params
     find_vendor
     @market = @vendor.market_id ? Market.find(@vendor.market_id) : nil
   end
