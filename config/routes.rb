@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get   "/vendors",                 to: "vendors#index"
   get   "/vendors/new",             to: "vendors#new"
   post  "/vendors",                 to: "vendors#create"
-  get   "/vendors/login",           to: "vendors#login"
-  post  "/vendors/login",           to: "vendors#show"
+  get   "/vendors/login",           to: "vendors#login_page"
+  post  "/vendors/login",           to: "vendors#login"
+  get   "/vendors/logout",          to: "vendors#logout"
 
   get   "/vendors/:id",             to: "vendors#show"
   get   "/vendors/:id/add_product", to: "products#new"

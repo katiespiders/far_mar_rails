@@ -6,6 +6,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if session[:vendor_id] %>
+  Logged in as <%= Vendor.find(session[:vendor_id]).name %>
+<% end %>
 
 <%= yield %>
 

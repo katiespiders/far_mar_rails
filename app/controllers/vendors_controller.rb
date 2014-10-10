@@ -46,7 +46,14 @@ class VendorsController < ApplicationController
   end
 
   def login
-    
+    find_vendor
+    session[:vendor_id] ||= @vendor.id
+    redirect_to "/vendors/#{@vendor.id}"
+  end
+
+  def logout
+    session[:vendor_id] = nil
+    redirect_to "/"
   end
 
   private
