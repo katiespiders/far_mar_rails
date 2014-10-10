@@ -20,12 +20,12 @@ class VendorsController < ApplicationController
     end
     puts params
     @vendor = Vendor.find(params[:id])
-    puts Market.all
-    if Market.where(@vendor.market_id)
-      @market = Market.find(@vendor.market_id)
-    else
-      @market = nil
-    end
+    # puts Market.all
+    # if Market.where(@vendor.market_id)
+    #   @market = Market.find(@vendor.market_id)
+    # else
+    #   @market = nil
+    # end
   end
 
   def edit
