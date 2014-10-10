@@ -29,10 +29,10 @@
     </p>
   <% end %> -->
   <form method="POST" action="/products#create">
-    Product name <input name="name"/>
-    Description <input name="description"/>
-    Price <input name="price" type="number" step="0.01"/>
-    <input type="hidden" name="vendor_id" value= <%= params.permit(:id)["id"].to_i %> />
+    Product name <input name="product[name]"/>
+    Description <input name="product[description]"/>
+    Price <input name="product[price]" type="number" step="0.01"/>
+    <input type="hidden" name="product[vendor_id]" value= <%= params.permit(:id)["id"].to_i %> />
 
     <input type="submit"/>
 
