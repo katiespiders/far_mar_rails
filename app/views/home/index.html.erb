@@ -1,17 +1,23 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Find Farmers Markets</title>
 </head>
 
 <body>
-<h1>Here's the home page</h1>
-<ul>
-  <li><a href="/markets">Markets</a></li>
-  <li><a href="/vendors">Vendors</a></li>
-  <li><a href="/products">Products</a></li>
+  <h1>Here's the home page</h1>
+  <ul>
+    <li><a href="/markets">Markets</a></li>
+    <li><a href="/vendors">Vendors</a></li>
+    <li><a href="/products">Products</a></li>
 
-</ul>
+  </ul>
 
-<!-- This next bit needs to be worked on: -->
-<a href= "/vendors/login" >Vendor login</a>
-<a href= "/vendors/logout">Vendor logout</a>
+  <% if session[:vendor_id] %>
+    <a href= "/vendors/logout">Log out <%= Vendor.find(session[:vendor_id]).name %></a>
+  <% else %>
+    <a href= "/vendors/login" >Login</a>
+  <% end %>
+
+</body>
+</html>

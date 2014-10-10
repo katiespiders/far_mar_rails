@@ -13,8 +13,6 @@ class MarketController < ApplicationController
     @market = Market.create(req_per_params)
     if session[:vendor_id]
       Vendor.update(session[:vendor_id], market_id: @market.id)
-
-      puts "*"*80, @vendor.inspect, @market.id, "&"*80
     end
     redirect_to "/markets/#{@market.id}"
   end

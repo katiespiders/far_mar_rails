@@ -1,8 +1,16 @@
-<h2>Markets</h2>
+<html>
+<head>
+  <title>All markets</title>
+</head>
 
-<% @markets.each do |market| %>
-  <a href="/markets/<%=market.id%>"><%= market.name%></a> <br>
-<% end %>
+<body>
+  <h2>Markets</h2>
+  <ul>
+    <% @markets.each do |market| %>
+      <li><a href="/markets/<%=market.id%>"><%= market.name%></a></li>
+    <% end %>
+  </ul>
 
-<br>
-<a href="markets/new">Create New</a>
+  <a href="markets/new">Create New</a>
+</body>
+</html>

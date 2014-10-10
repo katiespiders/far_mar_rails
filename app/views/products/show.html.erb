@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>All About <%= @product.name %></title>
+  <title>All about <%= @product.name %></title>
 </head>
 
 <body>
-  <%= session[:vendor_id] %>
   <h1> <%= @vendor.name %>'s <%= @product.name %> </h1>
   <p> <%= @product.description %> &mdash; $<%= @product.price %></p>
   <% if session[:vendor_id] == @vendor.id %>
@@ -13,3 +13,4 @@
   <% end %>
   <a href= "/vendors/<%= @product.vendor_id %>">Back to <%= @vendor.name %></a>
 </body>
+</html>
