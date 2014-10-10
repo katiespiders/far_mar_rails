@@ -4,6 +4,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="/css/layout.css" rel="stylesheet">
+
 </head>
 <body>
   <header>
@@ -14,14 +16,13 @@
         <li><a href="/markets">| Markets | </a></li>
         <li><a href="/vendors">| Vendors | </a></li>
         <li><a href="/products">| Products|</a></li>
-      </ul>
+      <% if session[:vendor_id] %>
+        <li>Logged in as <%= Vendor.find(session[:vendor_id]).name %></li>
+      <% end %>
+    </ul>
     </nav>
 
   </header>
-
-<% if session[:vendor_id] %>
-  Logged in as <%= Vendor.find(session[:vendor_id]).name %>
-<% end %>
 
 <%= yield %>
 

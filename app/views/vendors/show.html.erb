@@ -23,6 +23,7 @@
   </ul>
 
   <% if session[:vendor_id] == @vendor.id %>
+    Here is your vendor ID: <%=@vendor.id%><br>
     <a href="/vendors/<%=@vendor.id%>/add_product">Add a product</a>
     <a href="/vendors/<%=@vendor.id%>/edit">Edit</a>
     <a href="/vendors/<%=@vendor.id%>/destroy">Delete</a>
