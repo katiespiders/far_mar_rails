@@ -1,16 +1,15 @@
-<% product = Product.find(params[:id]) %>
-<!-- <%= puts "*" * 80, product.vendor_id, "*" * 80 %> -->
-<% vendor = Vendor.find(product.vendor_id) %>
-
 <html>
 <head>
-  <title>All About <%= product.name %></title>
+  <title>All About <%= @product.name %></title>
 </head>
 
 <body>
-  <h1> <%= vendor.name %>'s <%= product.name %> </h1>
-  <p> <%= product.description %> &mdash; $<%= product.price %></p>
-  <a href = <%= product.edit_path %> >Edit</a>
-  <!-- <a href = <%= product.delete_path %> >Delete</a> -->
-  <a href= "/vendors/<%= product.vendor_id %>">Back to <%= vendor.name %></a>
+  <%= session[:vendor_id] %>
+  <h1> <%= @vendor.name %>'s <%= @product.name %> </h1>
+  <p> <%= @product.description %> &mdash; $<%= @product.price %></p>
+  <% if session[:vendor_id] == @vendor.id %>
+    <a href = <%= @product.edit_path %> >Edit</a>
+    <a href = <%= @product.delete_path %> >Delete</a>
+  <% end %>
+  <a href= "/vendors/<%= @product.vendor_id %>">Back to <%= @vendor.name %></a>
 </body>

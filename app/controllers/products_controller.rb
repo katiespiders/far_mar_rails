@@ -5,20 +5,25 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params.permit(:name, :description, :price, :vendor_id)) # the 'require' part of this syntax refers to the key of a nested hash; it is left out here because the params from the raw html form are not in a nested hash
+    @product = Product.new(product_params)
     if @product.save
       redirect_to "/vendors/#{@product.vendor_id}"
     else
-      # I want to render vendors/add_product because that's where the form is, how do I get to it from products controller? or should I be doing this all from the vendors controller? probably...
+      render :new
     end
   end
 
   def edit
-    @product = Product.find(params.permit(:id)["id"])
+    find_product
+  end
+
+  def show
+    find_product
+    @vendor = Vendor.find(@product.vendor_id)
   end
 
   def update
-    @product = Product.find(params.permit(:id)["id"])
+    find_product
     @product.update(params.permit(:name, :description, :price))
     if @product.save
       redirect_to "/products/#{@product.id}"
@@ -27,8 +32,18 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    Product.destroy(params.permit(:id)["id"])
+  def delete
+    find_product
+    @product.destroy
     redirect_to "/products"
+  end
+
+  private
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :vendor_id)
+  end
+
+  def find_product
+    @product = Product.find(params["id"])
   end
 end

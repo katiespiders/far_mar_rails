@@ -19,6 +19,10 @@
 
   </header>
 
+<% if session[:vendor_id] %>
+  Logged in as <%= Vendor.find(session[:vendor_id]).name %>
+<% end %>
+
 <%= yield %>
 
 <footer>
