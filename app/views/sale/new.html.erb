@@ -1,0 +1,11 @@
+<h2>New Sale of <%= @product.name %> </h2>
+
+<form method="POST" action="/sale/show">
+  <table>
+    <tr><td>Price</td> <td><%= @product.price %></td></tr>
+    <tr><td>Quantity</td> <td><input type="text" name="sale[:number_sold]"/></td></tr>
+  </table>
+  <input type="hidden" name="sale[cost]" value = "<%= @product.price %>"
+  <input type="hidden" name="sale[product_id]" value="<%= @product.id %>"/>
+  <input type="submit" value="Record Sale"/>
+</form>

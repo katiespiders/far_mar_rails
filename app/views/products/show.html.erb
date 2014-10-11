@@ -10,6 +10,7 @@
   <% if session[:vendor_id] == @vendor.id %>
     <a href = <%= @product.edit_path %> >Edit</a>
     <a href = <%= @product.delete_path %> >Delete</a>
+    <a href = "/sales/new/<%=params[:id]%>">Make a Sale</a>
   <% end %>
   <a href= "/vendors/<%= @product.vendor_id %>">Back to <%= @vendor.name %></a>
 </body>
