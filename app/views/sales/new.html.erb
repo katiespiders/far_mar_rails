@@ -1,6 +1,6 @@
 <h2>New Sale of <%= @product.name %> </h2>
 
-<form method="POST" action="/sale/show">
+<form method="POST" action="/sales/create">
   <table>
     <tr><td>Price</td> <td><%= @product.price %></td></tr>
     <tr><td>Quantity</td> <td><input type="text" name="sale[:number_sold]"/></td></tr>

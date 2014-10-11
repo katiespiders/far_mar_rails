@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get   "/vendors/:id",             to: "vendors#show"
   get   "/vendors/:id/add_product", to: "products#new"
-  get   "/vendors/:id/add_market",  to: "markets#new"
+  get   "/vendors/:id/add_market",  to: "market#new"
   get   "/vendors/:id/edit",        to: "vendors#edit"
   put   "/vendors/:id",             to: "vendors#update"
   get   "/vendors/:id/destroy",     to: "vendors#delete"
@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get   "/products/:id/edit",       to: "products#edit"
   put   "/products/:id/",           to: "products#update"
   get   "/products/:id/destroy",    to: "products#delete"
+
+  get   "/sales/new/:id",           to: "sale#new"
+  post  "/sales/create",            to: "sale#create"
+  get   "/sales/:id",               to: "sale#show"
 
   get   "/markets",                 to: "market#index"
   get   "/markets/new",             to: "market#new"
