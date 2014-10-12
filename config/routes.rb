@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   put   "/products/:id/",           to: "products#update"
   get   "/products/:id/destroy",    to: "products#delete"
 
-  get   "/sales/new/:id",           to: "sale#new"
-  post  "/sales/create",            to: "sale#create"
-  get   "/sales/:id",               to: "sale#show"
+  get   "/sales/new/:id",           to: "sales#new"
+  post  "/sales/create",            to: "sales#create"
+  get   "/sales/:id",               to: "sales#show"
 
   get   "/markets",                 to: "market#index"
   get   "/markets/new",             to: "market#new"

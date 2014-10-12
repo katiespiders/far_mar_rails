@@ -1,7 +1,5 @@
 <h2><%= @product.name %></h2>
 
-Quantity sold: <%= @sale.quantity %>
-Sale price: <%= @sale.cost %>
-Sale time: <%= @sale %>
-
-<a href="/">Home</a>
+Quantity sold: <%= @sale.number_sold.inspect %> <br>
+Sale price: <%= @sale.cost %> <br>
+Sale time: <%= @sale.created_at %> <br>
