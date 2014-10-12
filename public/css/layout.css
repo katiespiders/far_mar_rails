@@ -29,6 +29,10 @@ header nav ul li {
   margin: 0
 }
 
+.mainstuff {
+  margin: auto;
+}
+
 footer {
   position: fixed;
   padding: 5px;
