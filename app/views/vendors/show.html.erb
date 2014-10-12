@@ -1,15 +1,18 @@
-
+<!DOCTYPE html>
 <html>
 <head>
-  <title><%= @vendor.name %></title>
+  <title>All about <%= @vendor.name %></title>
 </head>
 
 <body>
 
   <h1><%= @vendor.name %></h1>
   <p><%= @vendor.description %></p>
-  <% if @market %>
+  <% if @vendor.market_id %>
+    <% @market = Market.find(@vendor.market_id) %>
     <p>Find <a href="<%= @vendor.website %>"><%= @vendor.name %></a> at <a href="/markets/<%= @market.id %>"><%= @market.name %></a>.</p>
+  <% else %>
+    <p> <%= @vendor.inspect %> </p>
   <% end %>
 
   <p>Email <a href="mailto:<%= @vendor.email %>"><%= @vendor.name %></a> or call <%= @vendor.phone %></p>

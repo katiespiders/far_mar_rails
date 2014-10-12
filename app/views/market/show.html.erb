@@ -1,13 +1,30 @@
-<h2><%=@market.name%></h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All about <%=@market.name%></title>
+</head>
 
-Location:<br>
-<%= @market.street_address %><br>
-<%= @market.city %><br>
-<%= @market.state %><br>
-<%= @market.zipcode %><br>
+  <body>
+  <h2><%=@market.name%></h2>
 
-<br>
-<a href="/markets/<%=@market.id%>/edit">Edit</a>
-<a href="/markets/<%=@market.id%>/destroy">Delete</a>
-<br>
-<a href="/markets">Market List</a>
+  <%= @market.street_address %><br>
+  <%= @market.city %>, <%= @market.state %> <%= @market.zipcode %><br>
+
+  <h3>Vendors at <%=  @market.name %> </h3>
+  <ul>
+  <% Vendor.where(market_id: @market.id).each do |vendor| %>
+    <li><a href="<%=vendor.path%>"><%=vendor.name%></a></li>
+  <% end %>
+  </ul>
+
+  <% if session[:vendor_id] %>
+    <% current_user = Vendor.find(session[:vendor_id]) %>
+  <% end %>
+
+  <% if current_user && current_user.market_id == @market.id %>
+    <a href="/markets/<%=@market.id%>/edit">Edit</a>
+    <a href="/markets/<%=@market.id%>/destroy">Delete</a>
+  <% end %>
+
+</body>
+</html>

@@ -19,7 +19,6 @@ class VendorsController < ApplicationController
       puts "session:", session
       @loggedin = true
     end
-    puts params
     find_vendor
     @market = @vendor.market_id ? Market.find(@vendor.market_id) : nil
   end

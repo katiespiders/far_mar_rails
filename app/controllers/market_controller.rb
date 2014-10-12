@@ -11,6 +11,9 @@ class MarketController < ApplicationController
 
   def create
     @market = Market.create(req_per_params)
+    if session[:vendor_id]
+      Vendor.update(session[:vendor_id], market_id: @market.id)
+    end
     redirect_to "/markets/#{@market.id}"
   end
 
