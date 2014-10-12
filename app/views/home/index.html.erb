@@ -13,11 +13,5 @@
 
   </ul>
 
-  <% if session[:vendor_id] %>
-    <a href= "/vendors/logout">Log out <%= Vendor.find(session[:vendor_id]).name %></a>
-  <% else %>
-    <a href= "/vendors/login" >Login</a>
-  <% end %>
-
 </body>
 </html>

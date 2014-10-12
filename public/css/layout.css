@@ -1,4 +1,38 @@
+body {
+  font-family: Garamond;
+  font-size: 15px;
+}
+
+a:link {text-decoration: none; color: #2d373c}
+a:visited {text-decoration: none; color: #2c2e35}
+
+header .title {
+  font-size: 40px;
+
+}
+
+header nav {
+  float: right;
+  font-size: 20px;
+}
+
+header nav ul {
+  margin: 0;
+  padding:0;
+}
+
 header nav ul li {
   display: inline-block;
-  text-decoration: none
+  text-decoration: none;
+  font-family: Garamond;
+  font-size: 15px;
+  margin: 0
+}
+
+footer {
+  position: fixed;
+  padding: 5px;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

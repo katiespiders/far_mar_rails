@@ -27,6 +27,14 @@ class VendorsController < ApplicationController
     find_vendor
   end
 
+  def sales
+    find_vendor
+    @sales = []
+    @products = Product.where(vendor_id: @vendor.id).each do |product|
+      @sales += Sale.where(product_id: product.id)
+    end
+  end
+
   def update
     find_vendor
     @vendor.update(vendor_params)
