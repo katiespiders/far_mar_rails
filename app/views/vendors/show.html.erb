@@ -21,7 +21,7 @@
   <ul><% Product.where(vendor_id: @vendor.id).each do |product| %>
     <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %>
       <% if current_user %>
-      <a class="button" href= "sales/new/<%= product.id %>">Record Sale</a>
+      <a class="button" href= "/sales/new/<%= product.id %>">Record Sale</a>
       <a class="button" href= <%= product.edit_path %> >Edit</a>
       <a class="button" href= <%= product.delete_path %> >Delete </a>
       <% end %> </li>
