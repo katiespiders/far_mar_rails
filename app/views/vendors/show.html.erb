@@ -12,7 +12,6 @@
     <% @market = Market.find(@vendor.market_id) %>
     <p>Find <a href="<%= @vendor.website %>"><%= @vendor.name %></a> at <a href="/markets/<%= @market.id %>"><%= @market.name %></a>.</p>
   <% else %>
-    <p> <%= @vendor.inspect %> </p>
   <% end %>
 
   <p>Email <a href="mailto:<%= @vendor.email %>"><%= @vendor.name %></a> or call <%= @vendor.phone %></p>
