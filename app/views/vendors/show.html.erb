@@ -16,6 +16,10 @@
     Or go find <a href="<%= @vendor.website %>"><%= @vendor.name %></a> at <a href="/markets/<%= @market.id %>"><%= @market.name %></a>.
   <% else %>
   <% end %>
+  <% if current_user %>
+    <br><br><a class="button" href="/vendors/<%=@vendor.id%>/edit">Edit profile</a>
+    <a class="button" style="background-color: red" href="/vendors/<%=@vendor.id%>/destroy">Delete profile</a>
+  <% end %>
   <h2><a href="/vendors/<%=@vendor.id%>/my_products"><%= @vendor.name %>'s Products</a></h2>
   <ul><% Product.where(vendor_id: @vendor.id).each do |product| %>
     <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %>
@@ -28,11 +32,9 @@
   </ul>
 
   <% if current_user %>
-    <a href="/vendors/<%=@vendor.id%>/add_product">Add a product</a>
-    <a href="/vendors/<%=@vendor.id%>/edit">Edit</a>
-    <a href="/vendors/<%=@vendor.id%>/destroy">Delete</a><br>
-    <a href="/vendors/<%=@vendor.id%>/sales">Sales Record</a><br>
+    <a class="button" href="/vendors/<%=@vendor.id%>/add_product">Add a product</a>
+    <a class="button" href="/vendors/<%=@vendor.id%>/sales">View Sales Record</a>
   <% end %>
-  <a href="/vendors">Back to Vendor list</a>
+  <a class="button" href="/vendors">Back to Vendor list</a>
 </body>
 </html>

@@ -22,8 +22,9 @@
   <% end %>
 
   <% if current_user && current_user.market_id == @market.id %>
-    <a href="/markets/<%=@market.id%>/edit">Edit</a>
-    <a href="/markets/<%=@market.id%>/destroy">Delete</a>
+    <a class="button" href="/markets/<%=@market.id%>/edit">Edit</a>
+    <a class="button" href="/markets/<%=@market.id%>/destroy">Delete</a>
+    <a class="button" href="/markets/">Back to Market list</a>
   <% end %>
 
 </body>

@@ -80,10 +80,24 @@ li:hover > .dropdown {
   margin: 25px;
 }
 
+.mainstuff li {
+  margin: 10px;
+}
+
 blockquote {
   background-color: #98DA9E;
   padding: 10px;
   width: 70vw;
+}
+
+.button {
+  padding: 3px;
+  margin: 3px;
+  background-color: #98FF9E;
+  border-radius: 5px;
+  box-shadow: -2px 2px 2px 1px #999;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 16px;
 }
 
 footer {

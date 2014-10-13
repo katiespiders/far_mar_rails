@@ -5,5 +5,5 @@
   <tr><td>Sale time:</td> <td><%= @sale.created_at %> </td></tr>
   <tr><td>Sale id:</td> <td> <%= @sale.id %> </td></tr>
 </table>
-<a href="/products/<%= @product.id %>" > Back to <%= @product.name %> page</a><br>
-<a href="/vendors/<%= @product.vendor_id %>"> Back to vendor page</a>
+<a class="button" href="/products/<%= @product.id %>" > Back to <%= @product.name %> page</a><br>
+<a class="button" href="/vendors/<%= @product.vendor_id %>"> Back to <%= Vendor.find(@product.vendor_id).name %> page</a>
