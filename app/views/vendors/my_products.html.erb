@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title><%= @vendor.id %>'s products</title>
+</head>
+
+<body>
+  <% current_user = @vendor.id == session[:vendor_id] %>
+  <h2>
+  <% if current_user %>
+    My
+  <% else %>
+    <%= @vendor.name %>'s
+  <% end %>
+    products</h2>
+  <ul>
+  <% Product.where(vendor_id: @vendor.id).each do |product| %>
+      <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %>
+        <% if current_user %>
+        <a class="button" href= "sales/new/<%= product.id %>">Record Sale</a>
+        <a class="button" href= <%= product.edit_path %> >Edit</a>
+        <a class="button" href= <%= product.delete_path %> >Delete </a>
+        <% end %> </li>
+      <% end %>
+  </ul>
+</body>
+</html>

@@ -6,7 +6,11 @@ class Vendor < ActiveRecord::Base
     "/vendors/#{self.id}"
   end
 
-  def add_product_path
-    "/vendors/#{self.id}/add_product"
+  def edit_path
+    "/vendors/#{self.id}/edit"
+  end
+
+  def delete_path
+    "/vendors/#{self.id}/destroy"
   end
 end

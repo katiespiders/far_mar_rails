@@ -35,6 +35,10 @@ class VendorsController < ApplicationController
     end
   end
 
+  def my_products
+    find_vendor
+  end
+
   def update
     find_vendor
     @vendor.update(vendor_params)

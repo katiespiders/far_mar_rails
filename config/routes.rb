@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get   "/vendors/logout",          to: "vendors#logout"
 
   get   "/vendors/:id",             to: "vendors#show"
+  get   "/vendors/:id/my_products", to: "vendors#my_products"
   get   "/vendors/:id/add_product", to: "products#new"
   get   "/vendors/:id/add_market",  to: "market#new"
   get   "/vendors/:id/edit",        to: "vendors#edit"

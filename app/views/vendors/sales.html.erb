@@ -2,7 +2,7 @@
 <% results = 0 %>
 <% @sales.each do |sale| %>
 <% results += (sale.number_sold.to_i * sale.cost.to_i) %>
-  <%= sale.number_sold %> <%= Product.find(sale.product_id).name %> sold at <%= sale.created_at %> for $<%= sale.cost %>.<br>
+  <%= sale.number_sold %> <%= Product.find(sale.product_id).name %> sold at <%= sale.created_at %> for <%= number_to_currency(sale.cost) %>.<br>
 <% end %>
 
-Total sales revenue: <%= results %>
+Total sales revenue: <%= number_to_currency(results) %>

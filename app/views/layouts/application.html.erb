@@ -13,10 +13,12 @@
     <span class="title">
       <a href="/"><b>FarMar</b></a>
     </span><span class="subtitle">
-    The ultimate guide to farmers' markets in America</span>
+    <b>The ultimate guide to farmers' markets in America</b></span>
     <nav>
       <ul class="horizontal-list">
+
         <li><a href="/">Home</a></li>
+
         <li><a href="/markets">Markets</a>
           <ul class="dropdown">
             <% Market.all.each do |market| %>
@@ -25,10 +27,33 @@
               </li>
             <% end %>
           </ul></li>
-        <li><a href="/vendors">Vendors</a></li>
+
+        <li><a href="/vendors">Vendors</a>
+          <ul class="dropdown">
+            <% Vendor.all.each do |vendor| %>
+              <li>
+                <a href="/vendors/<%=vendor.id%>"><%=vendor.name%></a>
+              </li>
+            <% end %>
+          </ul></li>
+
         <li><a href="/products">Products</a></li>
+
       <% if session[:vendor_id] %>
-        <li class="user">Logged in as <%= Vendor.find(session[:vendor_id]).name %></li>
+        <% vendor = Vendor.find(session[:vendor_id]) %>
+        <li class="user"><a href="/vendors/<%=vendor.id%>"><%=vendor.name%></a>
+          <ul class="dropdown">
+            <li><a href="/markets/<%=vendor.market_id%>">My market</a></li>
+            <li>
+              <a href="/vendors/<%=vendor.id%>/my_products">My products</a></li>
+            <li><a href="/products/<%=vendor.id%>/new">Add product</a></li>
+            <li style="text-align: center">&mdash;</li>
+            <li>Vendor ID: <%= vendor.id %></li>
+            <li><a href="/vendors/logout">Log out</a></li>
+          </ul></li>
+
+      <% else %>
+        <li class="user"><a href="/vendors/login">Log in</a></li>
       <% end %>
     </ul>
     </nav>
@@ -41,13 +66,13 @@
 
 </div>
 
-<footer>
+<!-- <footer>
   <br>
   <% if session[:vendor_id] %>
     <a href= "/vendors/logout">Log out <%= Vendor.find(session[:vendor_id]).name %></a>
   <% else %>
     <a href= "/vendors/login" >Login</a>
   <% end %>
-</footer>
+</footer> -->
 </body>
 </html>

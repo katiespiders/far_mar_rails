@@ -5,23 +5,30 @@
 </head>
 
 <body>
+  <% current_user = (session[:vendor_id] == @vendor.id) %>
 
   <h1><%= @vendor.name %></h1>
-  <p><%= @vendor.description %></p>
+  <blockquote><%= @vendor.description %></blockquote>
+
+  List of all products: <a href="/vendors/<%=@vendor.id%>/my_products">My products</a>
+  Email <a href="mailto:<%= @vendor.email %>"><%= @vendor.name %></a> or call <%= @vendor.phone %>.
   <% if @vendor.market_id %>
     <% @market = Market.find(@vendor.market_id) %>
-    <p>Find <a href="<%= @vendor.website %>"><%= @vendor.name %></a> at <a href="/markets/<%= @market.id %>"><%= @market.name %></a>.</p>
+    Or go find <a href="<%= @vendor.website %>"><%= @vendor.name %></a> at <a href="/markets/<%= @market.id %>"><%= @market.name %></a>.
   <% else %>
   <% end %>
-
-  <p>Email <a href="mailto:<%= @vendor.email %>"><%= @vendor.name %></a> or call <%= @vendor.phone %></p>
   <h2><%= @vendor.name %>'s Products</h2>
   <ul><% Product.where(vendor_id: @vendor.id).each do |product| %>
-    <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %></li>
+    <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %>
+      <% if current_user %>
+      <a class="button" href= "sales/new/<%= product.id %>">Record Sale</a>
+      <a class="button" href= <%= product.edit_path %> >Edit</a>
+      <a class="button" href= <%= product.delete_path %> >Delete </a>
+      <% end %> </li>
     <% end %>
   </ul>
 
-  <% if session[:vendor_id] == @vendor.id %>
+  <% if current_user %>
     Here is your vendor ID: <%=@vendor.id%><br>
     <a href="/vendors/<%=@vendor.id%>/add_product">Add a product</a>
     <a href="/vendors/<%=@vendor.id%>/edit">Edit</a>
