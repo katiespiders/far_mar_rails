@@ -10,14 +10,13 @@
   <h1><%= @vendor.name %></h1>
   <blockquote><%= @vendor.description %></blockquote>
 
-  List of all products: <a href="/vendors/<%=@vendor.id%>/my_products">My products</a>
   Email <a href="mailto:<%= @vendor.email %>"><%= @vendor.name %></a> or call <%= @vendor.phone %>.
   <% if @vendor.market_id %>
     <% @market = Market.find(@vendor.market_id) %>
     Or go find <a href="<%= @vendor.website %>"><%= @vendor.name %></a> at <a href="/markets/<%= @market.id %>"><%= @market.name %></a>.
   <% else %>
   <% end %>
-  <h2><%= @vendor.name %>'s Products</h2>
+  <h2><a href="/vendors/<%=@vendor.id%>/my_products"><%= @vendor.name %>'s Products</a></h2>
   <ul><% Product.where(vendor_id: @vendor.id).each do |product| %>
     <li><a href = <%= product.path %> ><%= product.name %></a> &mdash; <%= number_to_currency(product.price) %>
       <% if current_user %>
@@ -29,7 +28,6 @@
   </ul>
 
   <% if current_user %>
-    Here is your vendor ID: <%=@vendor.id%><br>
     <a href="/vendors/<%=@vendor.id%>/add_product">Add a product</a>
     <a href="/vendors/<%=@vendor.id%>/edit">Edit</a>
     <a href="/vendors/<%=@vendor.id%>/destroy">Delete</a><br>
