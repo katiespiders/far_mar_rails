@@ -6,15 +6,16 @@
 
 <body>
 <form action= "/vendors/<%= @vendor.id %>" method="POST">
-
+  <table>
   <input type="hidden" name="_method" value="PUT" />
-  Name <input name="name" value= "<%= @vendor.name %>" />
-  Market <input name="market_id" value= "<%= @vendor.market_id %>" />
-  Description <input name="description" value= "<%= @vendor.description %>" />
-  Website <input name="website" value= "<%= @vendor.website %>" />
-  Email <input name="email" value= "<%= @vendor.email %>" />
-  Phone <input name="phone" value= "<%= @vendor.phone %>" />
-  <input type="submit"/>
+  <tr><td>Name</td> <td><input name="vendor[name]" value= "<%= @vendor.name %>" /></td></tr>
+  <tr><td>Market</td><td><input name="vendor[market_id]" value= "<%= @vendor.market_id %>" /></td></tr>
+  <tr><td>Description</td><td><input name="vendor[description]" value= "<%= @vendor.description %>" /></td></tr>
+  <tr><td>Website</td><td><input name="vendor[website]" value= "<%= @vendor.website %>" /></td></tr>
+  <tr><td>Email</td><td><input name="vendor[email]" value= "<%= @vendor.email %>" /></td></tr>
+  <tr><td>Phone</td><td><input name="vendor[phone]" value= "<%= @vendor.phone %>" /></td></tr>
+  </table>
+  <input type="submit" value="Save Changes"/>
 
 </form>
 </body>

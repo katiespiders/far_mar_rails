@@ -8,10 +8,15 @@
   <h1> <%= @vendor.name %>'s <%= @product.name %> </h1>
   <p> <%= @product.description %> &mdash; $<%= @product.price %></p>
   <% if session[:vendor_id] == @vendor.id %>
+    <% if @sales.length > 0 %>
+      <% @sales.each do |sale|%>
+        Sold <%= sale.number_sold %> at <%= sale.created_at %> for <%= sale.cost %>.<br>
+      <% end %>
+    <% end %>
     <a href = <%= @product.edit_path %> >Edit</a>
     <a href = <%= @product.delete_path %> >Delete</a>
     <a href = "/sales/new/<%=params[:id]%>">Make a Sale</a>
-  <% end %>
+  <% end %><br>
   <a href= "/vendors/<%= @product.vendor_id %>">Back to <%= @vendor.name %></a>
 </body>
 </html>

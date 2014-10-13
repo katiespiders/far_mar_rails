@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
 
   def show
     find_product
+    @sales = Sale.where("product_id='#{@product.id}'")
     @vendor = Vendor.find(@product.vendor_id)
   end
 

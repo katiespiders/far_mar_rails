@@ -5,13 +5,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="/css/layout.css" rel="stylesheet">
-
+  <title>Far Mar</title>
 </head>
 <body>
   <header>
+<<<<<<< HEAD
     <div id="opaque-image"></div>
-    <h1 id="title">The ultimate guide to farmers' markets in America
-</h1>
+    <span class="title">
+      <b>FarMar</b>
+    </span>
+    The ultimate guide to farmers' markets in America
     <nav>
       <ul>
         <li><a href="/">| Home |</a></li>
@@ -23,10 +26,22 @@
       <% end %>
     </ul>
     </nav>
-
+    <hr>
   </header>
+
+<div class="mainstuff">
 
 <%= yield %>
 
+</div>
+
+<footer>
+  <br>
+  <% if session[:vendor_id] %>
+    <a href= "/vendors/logout">Log out <%= Vendor.find(session[:vendor_id]).name %></a>
+  <% else %>
+    <a href= "/vendors/login" >Login</a>
+  <% end %>
+</footer>
 </body>
 </html>

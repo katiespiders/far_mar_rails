@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get   "/vendors/:id/add_product", to: "products#new"
   get   "/vendors/:id/add_market",  to: "market#new"
   get   "/vendors/:id/edit",        to: "vendors#edit"
+  get   "/vendors/:id/sales",       to: "vendors#sales"
   put   "/vendors/:id",             to: "vendors#update"
   get   "/vendors/:id/destroy",     to: "vendors#delete"
 

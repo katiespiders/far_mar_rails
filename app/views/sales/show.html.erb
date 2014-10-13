@@ -1,5 +1,9 @@
-<h2><%= @product.name %></h2>
-
-Quantity sold: <%= @sale.number_sold.inspect %> <br>
-Sale price: <%= @sale.cost %> <br>
-Sale time: <%= @sale.created_at %> <br>
+<h2>Sale of <%= @product.name %></h2>
+<table>
+  <tr><td>Quantity sold:</td> <td> <%= @sale.number_sold.inspect %></td></tr>
+  <tr><td>Sale price:</td> <td> <%= @sale.cost %> </td></tr>
+  <tr><td>Sale time:</td> <td><%= @sale.created_at %> </td></tr>
+  <tr><td>Sale id:</td> <td> <%= @sale.id %> </td></tr>
+</table>
+<a href="/products/<%= @product.id %>" > Back to <%= @product.name %> page</a><br>
+<a href="/vendors/<%= @product.vendor_id %>"> Back to vendor page</a>
