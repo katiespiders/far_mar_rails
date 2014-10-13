@@ -1,36 +1,85 @@
 body {
-  font-family: Garamond;
-  font-size: 15px;
+  font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  font-size: 18px;
+  margin: 0 auto;
 }
 
 a:link {text-decoration: none; color: #2d373c}
 a:visited {text-decoration: none; color: #2c2e35}
 
-header .title {
-  font-size: 40px;
+#opaque-image {
+   position: absolute;
+   height: 100px;
+   width: 100vw;
+   padding: 0;
+   opacity: 0.7;
+   background: url(/header_bkgd.jpg) no-repeat;
+   z-index: -1;
+   border-color: gray;
+ }
 
+header {
+  max-width: 1024px;
+}
+
+header .title {
+  position: relative;
+  top: 40px;
+  font-size: 40px;
+  padding-left: 40px;
+}
+
+header .subtitle {
+  position: relative;
+  top: 40px;
 }
 
 header nav {
-  float: right;
   font-size: 20px;
+  margin: 50px 0 0 0;
 }
 
 header nav ul {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
-header nav ul li {
+header nav .horizontal-list > li {
   display: inline-block;
   text-decoration: none;
-  font-family: Garamond;
-  font-size: 15px;
-  margin: 0
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  /*background-color: #E9F0BD;*/
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.user {
+  float: right;
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+}
+
+li:hover > .dropdown {
+  position: absolute;
+  display: block;
+  background-color: #E9F0BD;
+  list-style: none;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  margin: 5px;
 }
 
 .mainstuff {
-  margin: auto;
+  margin: 0 auto;
 }
 
 footer {

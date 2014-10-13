@@ -11,21 +11,28 @@
   <header>
     <div id="opaque-image"></div>
     <span class="title">
-      <b>FarMar</b>
-    </span>
-    The ultimate guide to farmers' markets in America
+      <a href="/"><b>FarMar</b></a>
+    </span><span class="subtitle">
+    The ultimate guide to farmers' markets in America</span>
     <nav>
-      <ul>
-        <li><a href="/">| Home |</a></li>
-        <li><a href="/markets">| Markets | </a></li>
-        <li><a href="/vendors">| Vendors | </a></li>
-        <li><a href="/products">| Products|</a></li>
+      <ul class="horizontal-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/markets">Markets</a>
+          <ul class="dropdown">
+            <% Market.all.each do |market| %>
+              <li>
+                <a href="/markets/<%=market.id%>"><%=market.name%></a>
+              </li>
+            <% end %>
+          </ul></li>
+        <li><a href="/vendors">Vendors</a></li>
+        <li><a href="/products">Products</a></li>
       <% if session[:vendor_id] %>
-        <li>Logged in as <%= Vendor.find(session[:vendor_id]).name %></li>
+        <li class="user">Logged in as <%= Vendor.find(session[:vendor_id]).name %></li>
       <% end %>
     </ul>
     </nav>
-    <hr>
+    <!-- <hr> -->
   </header>
 
 <div class="mainstuff">

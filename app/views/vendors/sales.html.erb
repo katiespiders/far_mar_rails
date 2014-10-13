@@ -1,7 +1,7 @@
 <h2>Sales Records for <%= @vendor.name %></h2>
 <% results = 0 %>
 <% @sales.each do |sale| %>
-<%= results += (sale.number_sold.to_i * sale.cost.to_i) %>
+<% results += (sale.number_sold.to_i * sale.cost.to_i) %>
   <%= sale.number_sold %> <%= Product.find(sale.product_id).name %> sold at <%= sale.created_at %> for $<%= sale.cost %>.<br>
 <% end %>
 
